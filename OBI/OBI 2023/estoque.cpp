@@ -8,11 +8,11 @@ int main() {
     
     int estq[M+1][N+1];
     
-    for (int i = 1; i <= M; i++) {
-        for (int j = 1; j <= N; j++) cin >> estq[i][j];
-    }
+    for (int i = 1; i <= M; i++)
+        for (int j = 1; j <= N; j++) 
+            cin >> estq[i][j];
+
     cin >> P;
-    
     while(P--) {
         int x, y;
         cin >> x >> y;

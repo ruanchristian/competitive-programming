@@ -4,12 +4,12 @@ using namespace std;
 
 #define MAXN 1007
 
-int S, T, P, adj[MAXN][MAXN], c[MAXN], ans = 0;
+int S, T, P, ans = 0, c[MAXN];
+bool adj[MAXN][MAXN];
 
 int main() {
     ios::sync_with_stdio(0);
     cin.tie(nullptr);
-    cout.tie(nullptr);
 
     cin >> S >> T;
     while(T--) {
@@ -26,7 +26,7 @@ int main() {
 
         bool ok = 1;
         for (int k=1; k<N; k++) {
-            if (adj[c[k]][c[k-1]] == 0) {
+            if (!adj[c[k]][c[k-1]]) {
                 ok = 0;
                 break;
             }
