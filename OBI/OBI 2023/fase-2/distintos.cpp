@@ -2,33 +2,30 @@
 
 using namespace std;
 
-#define MAXN 100001
-
-int ar[MAXN];
-unordered_map<int, int> freq;
+int N, ans = 0;
 
 int main() {
-    int N;
     cin >> N;
-    
-    for (int i = 0; i < N; i++) cin >> ar[i];
-    
-    int l = 0, r = 0, ans;
-    freq[ar[0]]++;
-    
-    while (r < N-1) {
-        r++;
-        freq[ar[r]]++;
-        
-        while (freq[ar[r]] > 1) {
-            freq[ar[l]]--;
-            l++;
+
+    vector<int> arr(N);
+    unordered_set<int> distincts;
+
+    for (int i = 0; i < N; i++) cin >> arr[i];
+
+    int left = 0, right = 0;
+
+    while (right < N) {
+        if (!distincts.count(arr[right])) {
+            distincts.insert(arr[right]);
+            ans = max(ans, right-left+1);
+            right++;
+        } else {
+            distincts.erase(arr[left]);
+            left++;
         }
-        
-        ans = max(ans, r-l+1);
     }
-    
+
     cout << ans << endl;
-    
+
     return 0;
 }
