@@ -15,7 +15,7 @@ int main() {
     cin>>n>>l>>k;
     
     vector<ll> d(n);
-    vector<int> a(n);
+    vector<int> a(n);oooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
     
     for (int i=0; i<n; i++) cin>>d[i];
     for (int i=0; i<n; i++) cin>>a[i];
